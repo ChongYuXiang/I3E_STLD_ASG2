@@ -17,6 +17,15 @@ public class DangerArea : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            // Stop telling player to take damage
+            CancelInvoke();
+        }
+    }
+
     private void sendDamage()
     {
         player.SendMessage("Damage");
