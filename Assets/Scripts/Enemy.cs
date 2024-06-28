@@ -1,3 +1,8 @@
+/* Author: Chong Yu Xiang  
+ * Filename: Enemy
+ * Descriptions: Enemy movement and health
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +11,9 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     Transform target;
+
+    [SerializeField]
+    int hitpoints;
 
     [SerializeField]
     float max_range;
@@ -22,6 +30,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     GameObject effect2;
 
+    // Enemy movement
     public void Update()
     {
         // Find distance between the player and enemy
@@ -42,8 +51,26 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            // Turn off weapon effects when out of range
             effect1.SetActive(false);
             effect2.SetActive(false);
         }
+
+        // Destroy enemy when it hits 0 health
+        if (hitpoints == 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    // Detect if enemy has been hit
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if what hit enemy was a projectile from the blaster
+        if (other.gameObject.CompareTag("Projectile")){
+            // Reduce health
+            hitpoints -= 1;
+        }
+    }
+
 }

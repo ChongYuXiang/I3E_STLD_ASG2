@@ -1,3 +1,8 @@
+/* Author: Chong Yu Xiang  
+ * Filename: Danger Area
+ * Descriptions: Deal damage to the player over time when in contact
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +12,13 @@ public class DangerArea : MonoBehaviour
     [SerializeField]
     GameObject player;
 
+    // Function for if the player touches a danger area
     private void OnTriggerEnter(Collider other)
     {
         // Check if what triggered is the Player
         if (other.gameObject.CompareTag("Player"))
         {
-            // Tell Player to take damage
+            // Repeat sendDamage every second the player is in range
             InvokeRepeating("sendDamage", 0.0f, 1.0f);
         }
     }
@@ -28,6 +34,7 @@ public class DangerArea : MonoBehaviour
 
     private void sendDamage()
     {
+        // Tell the player to take damage
         player.SendMessage("Damage");
     }
 }
