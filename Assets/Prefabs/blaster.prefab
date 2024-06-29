@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 565672246113915413}
+  - component: {fileID: 9041259227365606434}
   m_Layer: 0
   m_Name: blastPoint
   m_TagString: Untagged
@@ -31,6 +32,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7316682316809594260}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9041259227365606434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429023801262382243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5812c69da3d14a34aa2f4ee3fe7cfacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 7984396947486931349, guid: 74429c6cd41b46444b09c5db4efe7ba2,
+    type: 3}
+  shootSpeed: 60
 --- !u!1 &7980874838763978542
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7980874838763978542}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.028840164, z: -0, w: 0.9995841}
+  m_LocalRotation: {x: 0, y: -0.028837536, z: 0, w: 0.99958414}
   m_LocalPosition: {x: 0.4264326, y: -0.10599995, z: 0.6973839}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

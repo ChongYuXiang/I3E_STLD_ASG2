@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     // Destroy bullet if it travels too far
     IEnumerator waiter()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 
