@@ -12,11 +12,11 @@ public class Collectible : MonoBehaviour
     [SerializeField]
     GameObject manager;
 
-    protected virtual void Collected()
+    private void Collect()
     {
-        Destroy(gameObject);
+        manager = GameObject.Find("GameManager");
 
-        if (gameObject.name == "Scrap")
+        if (gameObject.name == "ScrapCollectible")
         {
             manager.GetComponent<GameManager>().IncreaseScrap(1);
         }
@@ -24,5 +24,7 @@ public class Collectible : MonoBehaviour
         {
             manager.GetComponent<GameManager>().IncreaseCore(1);
         }
+
+        Destroy(gameObject);
     }
 }

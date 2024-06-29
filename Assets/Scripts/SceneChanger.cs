@@ -11,21 +11,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    [SerializeField]
-    int targetSceneIndex;
-
-    // Change scene on collision
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            ChangeScene();
-        }
-    }
-
     // Load scene based on given index
-    public void ChangeScene()
+    public void ChangeScene(int sceneIndex)
     {
-        SceneManager.LoadScene(targetSceneIndex);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

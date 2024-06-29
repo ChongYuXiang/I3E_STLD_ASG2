@@ -37,12 +37,12 @@ public class GameManager : MonoBehaviour
     public void IncreaseScrap(int ScoreToAdd)
     {
         currentScrap += ScoreToAdd;
-        ScrapText.text = currentScrap.ToString() + "/1";
+        ScrapText.text = currentScrap.ToString() + "/20";
     }
 
     public void IncreaseCore(int ScoreToAdd)
     {
         currentCore += ScoreToAdd;
-        CoreText.text = currentCore.ToString() + "/20";
+        CoreText.text = currentCore.ToString() + "/1";
     }
 }
