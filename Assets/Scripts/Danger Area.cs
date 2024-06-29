@@ -12,6 +12,9 @@ public class DangerArea : MonoBehaviour
     [SerializeField]
     GameObject player;
 
+    [SerializeField]
+    GameObject manager;
+
     // Function for if the player touches a danger area
     private void OnTriggerEnter(Collider other)
     {
@@ -35,6 +38,7 @@ public class DangerArea : MonoBehaviour
     private void sendDamage()
     {
         // Tell the player to take damage
-        player.SendMessage("Damage");
+        manager = GameObject.Find("GameManager");
+        manager.GetComponent<GameManager>().DecreaseHealth(10);
     }
 }

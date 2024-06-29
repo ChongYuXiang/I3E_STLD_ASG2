@@ -31,10 +31,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    public void Damage()
-    {
-        health -= damage;
-        Debug.Log(health);
-    }
 }

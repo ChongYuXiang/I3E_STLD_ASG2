@@ -11,7 +11,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public int targetSceneIndex;
+    [SerializeField]
+    int targetSceneIndex;
 
     // Change scene on collision
     public void OnTriggerEnter(Collider other)
