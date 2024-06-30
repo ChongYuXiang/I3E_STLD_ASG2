@@ -11,7 +11,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    Transform target;
+    GameObject target;
 
     [SerializeField]
     int hitpoints;
@@ -37,8 +37,10 @@ public class Enemy : MonoBehaviour
     // Enemy movement
     public void Update()
     {
+        target = GameObject.Find("MainCamera");
+
         // Find distance between the player and enemy
-        float dist = Vector3.Distance(target.position, transform.position);
+        float dist = Vector3.Distance(target.transform.position, transform.position);
 
         // Check if target is within range
         if (dist <= max_range && dist >= min_range)
@@ -47,7 +49,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
 
             // Turn towards target
-            transform.LookAt(target);
+            transform.LookAt(target.transform);
 
             // Turn on weapon effects
             effect1.SetActive(true);

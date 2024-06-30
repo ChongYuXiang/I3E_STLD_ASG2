@@ -14,11 +14,6 @@ public class UIInteractions : MonoBehaviour
     public GameObject creditsPage;
     public GameObject tutorialPage;
 
-    public void ClickOptions()
-    {
-
-    }
-
     /// Function for slider
     public void SliderChange(float sliderValue)
     {

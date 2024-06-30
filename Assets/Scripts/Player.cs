@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     TextMeshProUGUI description;
 
     private GameObject gameManager;
+    private bool completed;
 
     private void Update()
     {
@@ -93,6 +94,26 @@ public class Player : MonoBehaviour
                     prompt.SetActive(false);
                 }
 
+            }
+
+
+        if (hitInfo.transform.name == "FixShip")
+            {
+                description.text = "Fix Ship";
+                prompt.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    gameManager = GameObject.Find("GameManager");
+                    gameManager.GetComponent<GameManager>().CompletionCheck();
+                    completed = gameManager.GetComponent<GameManager>().completed;
+
+                    if (completed == true)
+                    {
+                        sceneManager.SendMessage("ChangeScene", 4);
+                        Destroy(gameManager.gameObject);
+                    }
+                }
             }
         }
         else
