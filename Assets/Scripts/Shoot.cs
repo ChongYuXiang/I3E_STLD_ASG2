@@ -15,6 +15,9 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     float shootSpeed;
 
+    [SerializeField]
+    AudioSource shootSound;
+
     private void Update()
     {
         // Check if left click is pressed
@@ -24,6 +27,8 @@ public class Shoot : MonoBehaviour
             Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
             // Send projectile forwards
             instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, shootSpeed));
+            // Play sound effect
+            AudioManager.instance.PlaySFX("Shoot");
         }
     }
 }

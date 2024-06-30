@@ -1,11 +1,12 @@
 /* Author: Chong Yu Xiang  
  * Filename: UI Interactions
- * Descriptions: Functions for UI
+ * Descriptions: Functions for UI buttons
  */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInteractions : MonoBehaviour
 {
@@ -13,17 +14,23 @@ public class UIInteractions : MonoBehaviour
     public GameObject mainMenu;
     public GameObject creditsPage;
     public GameObject tutorialPage;
+    public Slider _VolumeSlider;
 
-    /// Function for slider
-    public void SliderChange(float sliderValue)
+    // Tell audio manager to toggle BGM
+    public void ToggleBGM()
     {
-        Debug.Log(sliderValue);
+        AudioManager.instance.ToggleBGM();
     }
 
-    // Function for toggle
-    public void ToggleChange(bool toggleValue)
+    // Tell audio manager to toggle SFX
+    public void ToggleSFX()
     {
-        Debug.Log(toggleValue);
+        AudioManager.instance.ToggleSFX();
+    }
+
+    public void Volume()
+    {
+        AudioManager.instance.Volume(_VolumeSlider.value);
     }
 
     // Change to main menu screen
@@ -61,8 +68,5 @@ public class UIInteractions : MonoBehaviour
     {
         // Close unity build
         Application.Quit();
-
-        // Stop unity editor
-        UnityEditor.EditorApplication.isPlaying = false;
     }
 }

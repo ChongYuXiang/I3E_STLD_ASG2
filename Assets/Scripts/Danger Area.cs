@@ -15,7 +15,7 @@ public class DangerArea : MonoBehaviour
     [SerializeField]
     GameObject manager;
 
-    // Function for if the player touches a danger area
+    // Player enters a danger area
     private void OnTriggerEnter(Collider other)
     {
         // Check if what triggered is the Player
@@ -26,6 +26,7 @@ public class DangerArea : MonoBehaviour
         }
     }
 
+    // Player exits a danger area
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     // Enemy movement
     public void Update()
     {
+        // Define target
         target = GameObject.Find("MainCamera");
 
         // Find distance between the player and enemy
@@ -62,10 +63,13 @@ public class Enemy : MonoBehaviour
             effect2.SetActive(false);
         }
 
-        // Destroy enemy when it hits 0 health
+        // When enemy hits 0 health
         if (hitpoints == 0)
         {
+            // Drop scrap on the ground
             Instantiate(drop, transform.position, drop.transform.rotation);
+
+            // Destroy enemy
             Destroy(gameObject);
         }
     }
