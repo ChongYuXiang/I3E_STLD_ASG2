@@ -51638,6 +51638,7 @@ MonoBehaviour:
   speed: 0.01
   effect1: {fileID: 6185034852110292218}
   effect2: {fileID: 392493297279432759}
+  drop: {fileID: 8636288650303994523, guid: 3ab49dd375f5d044abde59443b8dff41, type: 3}
 --- !u!135 &4970018426954074551
 SphereCollider:
   m_ObjectHideFlags: 0

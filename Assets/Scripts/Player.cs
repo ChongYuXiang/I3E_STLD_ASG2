@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI description;
 
+    private GameObject gameManager;
+
     private void Update()
     {
 
@@ -63,14 +65,32 @@ public class Player : MonoBehaviour
 
             }
 
-            if (hitInfo.transform.name == "ScrapCollectible")
+            if (hitInfo.transform.name == "ScrapCollectible" || hitInfo.transform.name == "ScrapCollectible(Clone)")
             {
                 description.text = "Pick Up";
                 prompt.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    hitInfo.transform.SendMessage("Collect");
+                    gameManager = GameObject.Find("GameManager");
+                    gameManager.GetComponent<GameManager>().IncreaseScrap(1);
+                    Destroy(hitInfo.transform.gameObject);
+                    prompt.SetActive(false);
+                }
+
+            }
+
+            if (hitInfo.transform.name == "EngineCore")
+            {
+                description.text = "Pick Up";
+                prompt.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    gameManager = GameObject.Find("GameManager");
+                    gameManager.GetComponent<GameManager>().IncreaseCore(1);
+                    Destroy(hitInfo.transform.gameObject);
+                    prompt.SetActive(false);
                 }
 
             }

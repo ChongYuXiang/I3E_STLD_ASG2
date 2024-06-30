@@ -5,6 +5,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -29,6 +30,9 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     GameObject effect2;
+
+    [SerializeField]
+    GameObject drop;
 
     // Enemy movement
     public void Update()
@@ -59,6 +63,7 @@ public class Enemy : MonoBehaviour
         // Destroy enemy when it hits 0 health
         if (hitpoints == 0)
         {
+            Instantiate(drop, transform.position, drop.transform.rotation);
             Destroy(gameObject);
         }
     }
